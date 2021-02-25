@@ -1,0 +1,55 @@
+FUNCTION dot_product(v1,v2:ARRAY_OF INTEGER[50]):INTEGER
+    VAR
+        i,ps: INTEGER ;
+    BEGIN
+        ps :=0;
+        FOR i FROM 0 TO arr1.length-1 DO
+            ps := ps + v1[i]*v2[i];
+        END_FOR
+        return ps;
+    END
+
+PROCEDURE n_pairs(VAR pair:BOOLEAN, p : ARRAY_OF  HASH_TABLE, n:INTEGER)
+    VAR
+    i,ps:INTEGER;
+    BEGIN
+        pair := true;
+        FOR i FROM 0 TO n-1 DO
+            IF dot_proceduct(p[i].get(1),p[i].get(2)) != 0 THEN
+                pair :=false;BREAK;
+            END_IF
+        END_FOR
+    END
+
+
+
+
+ALGORITHM checkpoint_procedural_programming
+VAR
+    v1 : ARRAY_OF INTEGER[50];
+    v2 : ARRAY_OF INTEGER[50];
+    i,j,n : INTEGER;
+    p : ARRAY_OF  HASH_TABLE;
+    htab : HASH_TABLE<INTEGER,ARRAY_OF INTEGER[50]>;
+    pair : BOOLEAN;
+
+BEGIN
+    // get number of pairs
+    write("How many pair of vector do we have ?");
+    read(n);
+
+    // get vectors values
+    FOR i FROM 0 TO n-1 DO
+        htab.delete(1);
+        htab.delete(2);
+        FOR j FROM 0 TO v1.length-1 DO
+            read(v1[i]);
+        END_FOR
+        htab.insert(1,v1)
+        FOR j FROM 0 TO v2.length-1 DO
+            read(v2[i]);
+        END_FOR
+        htab.insert(2,v2)
+        p[i]:=htab;
+    END_FOR
+END

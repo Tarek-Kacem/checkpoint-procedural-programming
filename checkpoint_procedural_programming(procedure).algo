@@ -52,5 +52,6 @@ BEGIN
         htab.insert(2,v2)
         p[i]:=htab;
     END_FOR
+    n_pairs(pair, p, n)
 
 END
